@@ -2,12 +2,14 @@ package com.arnur.ems_arnur_oop.api.model;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @DiscriminatorValue("Manager")
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class Manager extends Employee {
     private String department;

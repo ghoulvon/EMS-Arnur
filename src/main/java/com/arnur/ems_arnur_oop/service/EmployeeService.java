@@ -2,26 +2,20 @@ package com.arnur.ems_arnur_oop.service;
 
 import com.arnur.ems_arnur_oop.api.model.Employee;
 import com.arnur.ems_arnur_oop.repository.EmployeeRepo;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class EmployeeService {
     private final EmployeeRepo employeeRepo;
-
-    @Autowired
-    public EmployeeService(EmployeeRepo employeeRepo) {
-        this.employeeRepo = employeeRepo;
-    }
-
-    public Employee addEmployee(Employee employee) {
-        return employeeRepo.save(employee);
-    }
-
     public List<Employee> getAllEmployees() {
         return employeeRepo.findAll();
+    }
+    public void addEmployee(Employee employee) {
+        employeeRepo.addEmployee(employee.getName(), employee.getPosition(), employee.getSalary());
     }
 
     public void deleteEmployee(Long id) {
