@@ -14,8 +14,9 @@ public class EmployeeService {
     public List<Employee> getAllEmployees() {
         return employeeRepo.findAll();
     }
-    public void addEmployee(Employee employee) {
+    public Employee addEmployee(Employee employee) {
         employeeRepo.addEmployee(employee.getName(), employee.getPosition(), employee.getSalary());
+        return employee;
     }
 
     public void deleteEmployee(Long id) {
@@ -27,3 +28,5 @@ public class EmployeeService {
                 .orElseThrow(() -> new IllegalArgumentException("Employee with id " + id + " not found"));
     }
 }
+
+

@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "Employees")
 @Data
 @DiscriminatorColumn(name = "employee_type")
-@AllArgsConstructor
-@NoArgsConstructor
+@AllArgsConstructor //constructor with arguments
+@NoArgsConstructor //empty constructor
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @DiscriminatorValue("Manager")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class Manager extends Employee {
     private String department;

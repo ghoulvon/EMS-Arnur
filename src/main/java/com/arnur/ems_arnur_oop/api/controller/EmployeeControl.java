@@ -1,8 +1,8 @@
 package com.arnur.ems_arnur_oop.api.controller;
+
 import com.arnur.ems_arnur_oop.api.model.Employee;
 import com.arnur.ems_arnur_oop.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,15 +11,11 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/ems")
 public class EmployeeControl {
-
-    private EmployeeService employeeService;
-
+    private final EmployeeService employeeService;
     @PostMapping
     public Employee addEmployee(@RequestBody Employee employee) {
-        employeeService.addEmployee(employee);
-        return employee;
+        return employeeService.addEmployee(employee);
     }
-
     @GetMapping
     public List<Employee> getAllEmployees() {
         return employeeService.getAllEmployees();
