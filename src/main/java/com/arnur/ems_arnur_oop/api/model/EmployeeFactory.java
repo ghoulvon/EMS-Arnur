@@ -1,4 +1,5 @@
 package com.arnur.ems_arnur_oop.api.model;
+
 public class EmployeeFactory {
     public static Employee createEmployee(String type, Long id, String name, String position, double salary, String extraInfo) {
         if ("Manager".equalsIgnoreCase(type)) {
