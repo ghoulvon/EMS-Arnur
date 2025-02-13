@@ -12,7 +12,7 @@ import java.util.List;
 public class EmployeeControl {
     private final EmployeeService employeeService;
     @PostMapping
-    public Employee addEmployee(@RequestBody Employee employee) {
+    public Long addEmployee(@RequestBody Employee employee) {
         return employeeService.addEmployee(employee);
     }
     @GetMapping
