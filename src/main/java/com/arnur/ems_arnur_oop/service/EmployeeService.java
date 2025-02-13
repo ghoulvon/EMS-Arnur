@@ -17,10 +17,6 @@ public class EmployeeService {
     public Long addEmployee(Employee employee) {
         return employeeRepo.addEmployee(employee.getName(), employee.getPosition(), employee.getSalary());
     }
-//    public Long createUser(User user) {
-//        return userRepository.createUser(user.getName(), user.getSurname(), user.getCitizenship());
-//    }
-
     public void deleteEmployee(Long id) {
         employeeRepo.deleteById(id);
     }

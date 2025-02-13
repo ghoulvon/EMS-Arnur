@@ -6,14 +6,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@DiscriminatorValue("Intern")
 @Data
 @NoArgsConstructor
+@DiscriminatorValue("Intern")
 public class Intern extends Employee {
     private String university;
 
     public Intern(Long id, String name, String position, double salary, String university) {
-        super(id, name, position, salary);
+        super(id, name, position,salary);
         this.university = university;
     }
 
