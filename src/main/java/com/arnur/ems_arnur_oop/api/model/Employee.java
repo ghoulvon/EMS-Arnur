@@ -7,9 +7,11 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "Employees")
 @Data
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @AllArgsConstructor //constructor with arguments
 @NoArgsConstructor //empty constructor
 @DiscriminatorColumn (name = "type", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorValue("Simple")
 public  class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

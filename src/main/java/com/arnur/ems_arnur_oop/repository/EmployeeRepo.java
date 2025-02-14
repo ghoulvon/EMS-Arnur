@@ -8,9 +8,15 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
+
 public interface EmployeeRepo extends JpaRepository<Employee, Long> {
-    @Query(value = "insert into employees(name,position,salary,type,department,university) values (?,?,?) returning id", nativeQuery = true)
-    Long addEmployee(String name, String position, Double salary);
+//    @Query(value = "insert into employees(name,position,salary) values (?,?,?) returning id", nativeQuery = true)
+//    Long addEmployee(String name, String position, Double salary);
+@Query(
+        value = "INSERT INTO employees (name, position, salary, type) VALUES (?1, ?2, ?3, 'Simple') RETURNING id",
+        nativeQuery = true
+)
+Long addEmployee(String name, String position, Double salary);
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM employees WHERE id = :id", nativeQuery = true)
