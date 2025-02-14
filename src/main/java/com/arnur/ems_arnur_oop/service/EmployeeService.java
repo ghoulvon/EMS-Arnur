@@ -15,12 +15,9 @@ public class EmployeeService {
     public List<Employee> getAllEmployees() {
         return employeeRepo.findAll();
     }
-//    public Long addEmployee(Employee employee) {
-//        return employeeRepo.addEmployee(employee.getName(), employee.getPosition(), employee.getSalary());
-//    }
-public Long addEmployee(Employee employee) {
+    public Long addEmployee(Employee employee) {
     return employeeRepo.save(employee).getId();
-}
+    }
     public void deleteEmployee(Long id) {
         employeeRepo.deleteById(id);
     }

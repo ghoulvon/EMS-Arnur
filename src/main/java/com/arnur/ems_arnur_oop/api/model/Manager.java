@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@DiscriminatorValue("Manager")
+//@DiscriminatorValue("Manager")
 public class Manager extends Employee {
     private String department;
 

@@ -1,4 +1,6 @@
 package com.arnur.ems_arnur_oop.api.model;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +13,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor //constructor with arguments
 @NoArgsConstructor //empty constructor
 @DiscriminatorColumn (name = "type", discriminatorType = DiscriminatorType.STRING)
-@DiscriminatorValue("Simple")
+@DiscriminatorValue("Employee")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type",defaultImpl = Employee.class)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Manager.class, name = "Manager"),
+        @JsonSubTypes.Type(value = Intern.class, name = "Intern")
+})
+
 public  class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
