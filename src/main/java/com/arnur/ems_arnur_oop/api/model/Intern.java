@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-//@DiscriminatorValue("Intern")
+@DiscriminatorValue("Intern")
 public class Intern extends Employee {
     private String university;
 

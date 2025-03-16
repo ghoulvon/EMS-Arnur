@@ -19,14 +19,12 @@ import lombok.NoArgsConstructor;
         @JsonSubTypes.Type(value = Manager.class, name = "Manager"),
         @JsonSubTypes.Type(value = Intern.class, name = "Intern")
 })
-
 public  class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String position;
-
     private double salary;
     public void work() {
         System.out.println(getName() + " is working as " + getPosition());

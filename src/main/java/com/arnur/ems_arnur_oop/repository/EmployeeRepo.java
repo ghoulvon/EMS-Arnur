@@ -10,13 +10,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 
 public interface EmployeeRepo extends JpaRepository<Employee, Long> {
+    @Modifying
+    @Transactional
     @Query(
         value = "INSERT INTO employees (name, position, salary, type) VALUES (?1, ?2, ?3) RETURNING id",
         nativeQuery = true
     )
     Long addEmployee(String name, String position, Double salary);
-    @Modifying
-    @Transactional
     @Query(value = "DELETE FROM employees WHERE id = :id", nativeQuery = true)
     void deleteById(@Param("id") Long id);
 
